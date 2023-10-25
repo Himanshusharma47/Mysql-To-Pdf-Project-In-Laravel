@@ -13,9 +13,13 @@ class StudentController extends Controller
 
     public function export(Request $request){
         $data=Students::all();
+        
+        // create new Tcpdf
         $pdf=new TCPDF();
+        // Add page through Object
         $pdf->AddPage();
-        $pdf->SetFont('dejavusans', '', 12);//optional
+        $pdf->SetFont('dejavusans', '', 12);
+
         // Add column headings
         $pdf->Cell(30, 10, 'Id', 1);
         $pdf->Cell(30, 10, 'name', 1);
@@ -23,6 +27,7 @@ class StudentController extends Controller
         $pdf->Cell(30, 10, 'city', 1);
         $pdf->Ln(); 
 
+        // Loop through the student data and add it to the PDF table
         foreach ($data as $row) {
             $pdf->Cell(30, 10, $row->id, 1);
             $pdf->Cell(30, 10, $row->name, 1);

@@ -9,11 +9,13 @@
 <body>
     <div class="container">
         <h1>Export Data to PDF</h1>
+        {{-- button section --}}
         <button>
             <a href="{{ route('export.data') }}" >Export Students Data To PDF</a>
         </button>
         
         <h2>Cities Data</h2>
+        {{-- table start here --}}
         <table class="table" border="2" width="30%">
             <thead>
                 <tr>
@@ -23,6 +25,7 @@
                     <th>City</th>
                 </tr>
             </thead>
+            {{-- body start here --}}
             <tbody>
                 @foreach ($students as $student)
                 <tr>
